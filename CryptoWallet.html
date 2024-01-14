@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        #crypto-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .crypto-card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Crypto Wallet</h1>
+    </header>
+    <div id="crypto-list"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cryptoList = document.getElementById("crypto-list");
+
+            // Sample data (replace with real API data)
+            const cryptoData = [
+                { name: "Bitcoin", symbol: "BTC", price: 45000 },
+                { name: "Ethereum", symbol: "ETH", price: 3000 },
+                { name: "Litecoin", symbol: "LTC", price: 150 },
+            ];
+
+            cryptoData.forEach(crypto => {
+                const cryptoCard = document.createElement("div");
+                cryptoCard.classList.add("crypto-card");
+
+                const nameElement = document.createElement("h2");
+                nameElement.textContent = crypto.name;
+
+                const symbolElement = document.createElement("p");
+                symbolElement.textContent = crypto.symbol;
+
+                const priceElement = document.createElement("p");
+                priceElement.textContent = `$${crypto.price.toFixed(2)}`;
+
+                cryptoCard.appendChild(nameElement);
+                cryptoCard.appendChild(symbolElement);
+                cryptoCard.appendChild(priceElement);
+
+                cryptoList.appendChild(cryptoCard);
+            });
+        });
+    </script>
+</body>
+</html>
